@@ -41,7 +41,8 @@ const alertaSchema = Schema({
         required: true
     },
     fotoDesaparecido: {
-        type: Buffer
+        type: String,
+       required: true
     },
     nombresDenunciante: {
         type: String,
@@ -57,11 +58,11 @@ const alertaSchema = Schema({
     },
     telefonoDenunciante: {
         type: String,
-        required: true
+       required: true
     },
     emailDenunciante: {
         type: String,
-        required: true
+      required: true
     },
     parentescoDenunciante: {
         type: String,
@@ -73,12 +74,12 @@ const alertaSchema = Schema({
     },
     direccionViviendaDenunciante: {
         type: String,
-        required: true
+       required: true
     },
     sexoDenunciante: {
         type: String,
         enum: ['Masculino', 'Femenino'],
-        required: true
+       required: true
     },
     estadoAlerta: {
         type: String,
