@@ -33,7 +33,7 @@ const alertaSchema = Schema({
     },
     fechaDesaparicion: {
         type: String, /* edité esto para prueba*/
-        required: true
+       required: true
     },
     sexoDesaparecido: {
         type: String,
@@ -44,6 +44,7 @@ const alertaSchema = Schema({
         type: String,
        required: true
     },
+    
     nombresDenunciante: {
         type: String,
         required: true
@@ -62,7 +63,7 @@ const alertaSchema = Schema({
     },
     emailDenunciante: {
         type: String,
-      required: true
+        required: true
     },
     parentescoDenunciante: {
         type: String,
@@ -81,11 +82,14 @@ const alertaSchema = Schema({
         enum: ['Masculino', 'Femenino'],
        required: true
     },
+
+    
     estadoAlerta: {
         type: String,
         enum: ['Encontrado', 'Desaparecido'],
-        required: true
+       required: true
     }
+        
 })
 
 export default model('alerta', alertaSchema)

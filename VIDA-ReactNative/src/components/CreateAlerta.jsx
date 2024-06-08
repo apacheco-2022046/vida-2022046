@@ -7,7 +7,19 @@ import axios from 'axios';
 import { saveAlertaRequest } from '../../services/api.js';
 
 
+//const forData
+/*
+ const [formData, setFormData] = useState({
+    nombre: '',
+    direccion: '',
+    telefono: '',
+    descripcion: '',
+    imagen: '',
+    categoria: '',
+    favorito: []
+  })
 
+*/
 const CreateAlerta = () => {
     const { addAlerta, isLoading } = useAlerta();
     const [previewUri, setPreviewUri] = useState('');
@@ -115,17 +127,24 @@ const [fileName, setFileName] = useState('');
 
     
   
+      //
+    const handleFileChange = (e)=>{
+        setFormData((prevData)=>({
+          ...prevData,
+          [e.target.name]: e.target.files[0]
+        }))
+      }
 
     
 
-    
 
 
 
 
-
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault()
         await addAlerta(alerta);
+        
         setAlerta({
             nombresDesaparecido: '',
             apellidosDesaparecido: '',
@@ -241,7 +260,12 @@ const [fileName, setFileName] = useState('');
             <View style={styles.inputGroup}>
                 <Text style={styles.label}>Foto Desaparecido</Text>
           
-                <TouchableOpacity onPress={pickImage} style={styles.imagePicker}>
+                <TouchableOpacity 
+                    onPress={pickImage} 
+                    style={styles.imagePicker} 
+                    value={alerta.fotoDesaparecido}
+                    name='imagen'
+                >
                 
                     <Text style={styles.imagePickerText }>Seleccionar Imagen</Text>
                 </TouchableOpacity>
